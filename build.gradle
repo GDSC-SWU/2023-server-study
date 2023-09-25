@@ -1,0 +1,36 @@
+buildscript {
+    ext{  // 전역변수 설정
+    springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 플러그인 의존성들을 적용할지 결정하는 코드
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+// 각종 의존성들을 어떤 원격 저장소에서 받을지를 지정
+repositories {
+    mavenCentral() // 본인이 만든 라이브러리를 업로드하기 위해 힘든 과정 필요
+    // jcenter() // mavenCentral 문제점을 개선하여 라이브러리 업로드를 간단하게 함
+}
+
+// 프로젝트에 필요한 각종 의존성들을 선언하는 곳
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok' // gradle 버전이 5일 때 해당 부분도 같이 컴파일하지 않으면 initiallize 에러 발생
+}
