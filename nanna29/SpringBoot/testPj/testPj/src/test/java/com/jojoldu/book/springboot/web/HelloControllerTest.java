@@ -24,8 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //          그래서 작성한 Test Code 에서 빈을 로드할 수 없기 때문에 JPA metamodel must not be empty! 에러가 발생
 // 오류 해결: @WebMvcTest 를 @SpringBootTest 변경, @AutoConfigureMockMvc 어노테이션 추가
 // @WebMvcTest (controllers = HelloController.class)
-//주석추가//주석추가//주석추가//주석추가
-//주석추가//주석추가//주석추가//주석추가
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
