@@ -26,7 +26,10 @@ public class PostsApiController {
     public PostsReadDto findById (@PathVariable Long id){
         return postsService.findById(id);
     }
-//
-//    @DeleteMapping("/api/shopping/posts/{id}") //삭제
-//    public
+
+    @DeleteMapping("/api/shopping/posts/{id}") //삭제
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
+    }
 }
